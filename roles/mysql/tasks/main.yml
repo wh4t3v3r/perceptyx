@@ -1,0 +1,9 @@
+---
+- include: packages.yml
+
+- name: Start and enable mysql server
+  service: name=mysql state=started enabled=yes
+
+- include: mysql_secure_installation.yml
+
+- include: populate.yml

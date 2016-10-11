@@ -1,0 +1,13 @@
+---
+
+- name: Configure nginx
+  copy: src=files/nginx.default dest=/etc/nginx/sites-available/default owner=root group=root mode=0644
+
+- name: Copy the script
+  template: src=templates/perceptyx.php.j2 dest=/var/www/html/perceptyx.php owner=root group=root mode=0644
+
+- name: Start and enable php-fpm 
+  service: name=php7.0-fpm state=started enabled=yes
+
+- name: Start and enable nginx
+  service: name=nginx state=started enabled=yes

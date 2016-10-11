@@ -1,0 +1,6 @@
+- name: Deploy the script perceptyx and configure all the services
+  hosts: php 
+  become: true
+  roles:
+   - mysql
+   - nginx_php

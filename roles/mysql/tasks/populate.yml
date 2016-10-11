@@ -1,0 +1,10 @@
+---
+
+- git: repo=https://github.com/datacharmer/test_db.git
+       dest=/tmp/test_db
+
+- name: Populate MySQL db
+  shell: mysql < employees.sql
+  args:
+    chdir: /tmp/test_db
+    creates: /tmp/sql_populated

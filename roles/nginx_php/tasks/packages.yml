@@ -1,0 +1,9 @@
+---
+
+- name: Install PHP and nginx packages
+  apt: name={{ item }} update_cache=yes state=latest
+  with_items:
+    - nginx
+    - php
+    - php-fpm
+    - php-mysqli
